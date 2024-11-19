@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"github.com/morrisxyang/xreflect"
 	"github.com/pkg/errors"
-	"github.com/ruomm/gox-exclex/excelx/model"
+	"github.com/ruomm/gox-excelx/excelx/model"
 	"github.com/ruomm/goxframework/gox/refx"
 	"github.com/xuri/excelize/v2"
 	"html/template"

@@ -7,7 +7,7 @@ package excelx
 
 import (
 	"github.com/pkg/errors"
-	"github.com/ruomm/gox-exclex/excelx/model"
+	"github.com/ruomm/gox-excelx/excelx/model"
 	"github.com/xuri/excelize/v2"
 	"reflect"
 	"strconv"

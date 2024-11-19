@@ -1,4 +1,4 @@
-module github.com/ruomm/gox-exclex
+module github.com/ruomm/gox-excelx
 
 go 1.22.1
 
