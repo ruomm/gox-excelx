@@ -21,14 +21,15 @@ const (
 
 // ExcelTag 自定义一个tag结构体
 type ExcelTag struct {
-	Value    interface{}
-	Name     string // 表头标题
-	Index    int    // 列下标(从0开始)
-	Width    int    // 列宽
-	Replace  string // 替换（需要替换的内容_替换后的内容。比如：1_未开始 ==> 表示1替换为未开始）
-	Convert  string // 转换方法名
-	Cpoption string //方法优化名称
-	Align    string // 对齐方式 left、center、right
+	Value      interface{}
+	Name       string // 表头标题
+	Index      int    // 列下标(从0开始)
+	Width      int    // 列宽
+	Replace    string // 替换（需要替换的内容_替换后的内容。比如：1_未开始 ==> 表示1替换为未开始）
+	Convert    string // 转换方法名
+	Cpoption   string //方法优化名称
+	Align      string // 对齐方式 left、center、right
+	FieldIndex int    //对象化在Field中的排序
 }
 
 // NewExcelTag 构造函数，返回一个带有默认值的 ExcelTag 实例

@@ -297,9 +297,9 @@ func normalBuildTitle(e *model.Excel, config *model.ExportConfig, dataValue refl
 		dataType = dataType.Elem()
 	}
 	var exportTitle []model.ExcelTag // 遍历目标对象的字段
-	for i := 0; i < dataType.NumField(); i++ {
-		var excelTag model.ExcelTag
-		field := dataType.Field(i) // 获取字段信息和tag
+	for j := 0; j < dataType.NumField(); j++ {
+		var dataCol model.ExcelTag
+		field := dataType.Field(j) // 获取字段信息和tag
 		tag := field.Tag.Get(model.ExcelTagKey)
 		if tag == "" { // 如果非导出则跳过
 			continue
@@ -312,7 +312,7 @@ func normalBuildTitle(e *model.Excel, config *model.ExportConfig, dataValue refl
 				continue
 			}
 		}
-		err = excelTag.GetTag(tag)
+		err = dataCol.GetTag(tag)
 		if err != nil {
 			return
 		}
@@ -320,18 +320,22 @@ func normalBuildTitle(e *model.Excel, config *model.ExportConfig, dataValue refl
 		if config.ChangeHead != nil {
 			tmpName, tmpOk := config.ChangeHead[field.Name]
 			if tmpOk && tmpName != "" {
-				excelTag.Name = tmpName
+				dataCol.Name = tmpName
 			}
 		}
 		if config.ReplaceHead != nil {
 			for k, v := range config.ReplaceHead {
-				excelTag.Name = strings.ReplaceAll(excelTag.Name, "${"+k+"}", v)
+				dataCol.Name = strings.ReplaceAll(dataCol.Name, "${"+k+"}", v)
 			}
 		}
-		exportTitle = append(exportTitle, excelTag)
+		dataCol.FieldIndex = j
+		exportTitle = append(exportTitle, dataCol)
 	}
 	// 排序
 	sort.Slice(exportTitle, func(i, j int) bool {
+		if exportTitle[i].Index == exportTitle[j].Index {
+			return exportTitle[i].FieldIndex < exportTitle[j].FieldIndex
+		}
 		return exportTitle[i].Index < exportTitle[j].Index
 	})
 	var titleRowData []string // 列头行
@@ -430,10 +434,14 @@ func normalBuildDataRowObjMode(buildReq *model.DataRowBuildReq) (err error) {
 					maxLen = rwsTemp
 				}
 			}
+			dataCol.FieldIndex = j
 			exportRow = append(exportRow, dataCol)
 		}
 		// 排序
 		sort.Slice(exportRow, func(i, j int) bool {
+			if exportRow[i].Index == exportRow[j].Index {
+				return exportRow[i].FieldIndex < exportRow[j].FieldIndex
+			}
 			return exportRow[i].Index < exportRow[j].Index
 		})
 		var rowData []interface{} // 数据列
@@ -539,10 +547,14 @@ func normalBuildDataRowStringMode(buildReq *model.DataRowBuildReq) (err error) {
 			if rwsTemp > maxLen {        //这里取每一行中的每一列字符长度最大的那一列的字符
 				maxLen = rwsTemp
 			}
+			dataCol.FieldIndex = j
 			exportRow = append(exportRow, dataCol)
 		}
 		// 排序
 		sort.Slice(exportRow, func(i, j int) bool {
+			if exportRow[i].Index == exportRow[j].Index {
+				return exportRow[i].FieldIndex < exportRow[j].FieldIndex
+			}
 			return exportRow[i].Index < exportRow[j].Index
 		})
 		var rowData []interface{} // 数据列
