@@ -2,7 +2,7 @@ module github.com/ruomm/gox-excelx
 
 go 1.21.0
 
-require github.com/ruomm/goxframework v1.7.5
+require github.com/ruomm/goxframework v1.7.6
 
 require (
 	github.com/morrisxyang/xreflect v0.0.0-20231001053442-6df0df9858ba

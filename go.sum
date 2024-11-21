@@ -13,8 +13,8 @@ github.com/richardlehane/mscfb v1.0.4/go.mod h1:YzVpcZg9czvAuhk9T+a3avCpcFPMUWm7
 github.com/richardlehane/msoleps v1.0.1/go.mod h1:BWev5JBpU9Ko2WAgmZEuiz4/u3ZYTKbjLycmwiWUfWg=
 github.com/richardlehane/msoleps v1.0.3 h1:aznSZzrwYRl3rLKRT3gUk9am7T/mLNSnJINvN0AQoVM=
 github.com/richardlehane/msoleps v1.0.3/go.mod h1:BWev5JBpU9Ko2WAgmZEuiz4/u3ZYTKbjLycmwiWUfWg=
-github.com/ruomm/goxframework v1.7.5 h1:r9Fl+NDmZvokPx9VuBu4RGDehcDPE70npRNiDKnoVZw=
-github.com/ruomm/goxframework v1.7.5/go.mod h1:wsumNnJ8oudq7fCF7yEdN3lBvXXC33Qtswv+IDGxqnU=
+github.com/ruomm/goxframework v1.7.6 h1:E09i1wwY3Y4nsXkGdp8HAaz7anM/49YOApxlH8Jbnpc=
+github.com/ruomm/goxframework v1.7.6/go.mod h1:wsumNnJ8oudq7fCF7yEdN3lBvXXC33Qtswv+IDGxqnU=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/xuri/efp v0.0.0-20231025114914-d1ff6096ae53 h1:Chd9DkqERQQuHpXjR/HSV1jLZA6uaoiwwH3vSuF3IW0=
